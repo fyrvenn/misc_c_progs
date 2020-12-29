@@ -1,2 +1,2 @@
-# misc_c_progs-
+# misc_c_progs
 Miscellaneous programs in C.
