@@ -17,29 +17,30 @@ int main(int argc, char* argv[]) {
     N = atoi(argv[1]);
     M = atoi(argv[2]);
  
-    int **a = (int**)malloc(M * sizeof(int*));
+    // int **a = (int**)malloc(M * sizeof(int*));
+    int a[N][M];
     srand(time(NULL));
     for (int i = 0; i < N; i++)  // генерировать матрицу
     {
-        a[i] = (int*)malloc(N * sizeof(int));
+        // a[i] = (int*)malloc(N * sizeof(int));
         for (int j = 0; j < M; j++)
         {
             a[i][j] =rand()% (y-x + 1)+x;
         }
     }
 
-    printf("Матрица случайных чисел размерности %d*%d:\n", N, M);
+    printf("\nThe matrix of random variables %d*%d:\n", N, M);
     for (int i=0;i<N;i++)
     {
         for (int j=0;j<M;j++)
             {
-                printf (" %d ", a[i][j]);
+                printf ("%d\t", a[i][j]);
             }
         printf ("\n");
     }
 
-    int *mins = malloc(N * sizeof(int*));
-    int *index_j = malloc(N * sizeof(int*));
+    int mins[N];
+    int index_j[N];
     for (int i = 0; i < N; i++)    
     {
         mins[i]=a[i][0];
@@ -52,9 +53,9 @@ int main(int argc, char* argv[]) {
                 }
     }
 
-    printf("Минимальные значения по строкам:\n");
+    printf("\nMinimal values by row:\n");
     for (int i = 0; i < N; i++)    
-        printf (" %d ", mins[i]);
+        printf ("%d\t", mins[i]);
 
     int max = mins[0];
     int index_i = 0;
@@ -67,12 +68,7 @@ int main(int argc, char* argv[]) {
            }
         }
     int j = index_j[index_i];
-    printf("\nМаксимальное из минимумов: %d, строка=%d, столбец=%d\n", a[index_i][j], index_i+1, j+1);
-
-    for (int i=0;i<N;i++)
-    free(a[i]);    
-    free(a);
-    free(index_j);
+    printf("\nThe maximum variables from the minimums: %d, row=%d, column=%d\n", a[index_i][j], index_i+1, j+1);
         
     return 0;
 }
