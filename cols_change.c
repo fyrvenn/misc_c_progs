@@ -3,6 +3,14 @@
 #include <stdlib.h>
 #include <time.h>
 
+
+void reformat_arr(int n, int m, int **arr)
+{   
+    
+    printf("\n");
+}
+
+
 int main(int argc, char* argv[]) {
     
     int M;
@@ -27,15 +35,31 @@ int main(int argc, char* argv[]) {
         }
     }
 
+
+    for (int i = 0; i < N; i++)  // переопределить матрицу
+    {   
+        int num=N+1;
+        int max = a[i][0];
+        for (int j = 0; j < M; j++)
+        {
+            if (a[i][j]<0)
+                num = j;
+            if (j>num)
+                a[i][j] = max;
+            if (a[i][j]>max)
+                max = a[i][j];
+        }
+    }
+
     printf("Матрица случайных чисел размерности %d*%d:\n", N, M);
     for (int i=0;i<N;i++)
     {
         for (int j=0;j<M;j++)
-            {
-                printf ("%d\t", a[i][j]);
-            }
-        printf ("\n");
+            printf("%d\t", a[i][j]);
+        printf("\n");
     }
         
+    reformat_arr(N, M, a);
+
     return 0;
 }
