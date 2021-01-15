@@ -10,7 +10,7 @@ int main(int argc, char* argv[]) {
     int x=1, y=100;
     if (argc!=3)
     {
-        printf("Укажите размерность матрицы (n*m)\n");
+        printf("Specify the dimension of the matrix (n*m)\n");
         return 1;
     }
 
