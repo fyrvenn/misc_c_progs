@@ -4,12 +4,7 @@
 #include <time.h>
 
 
-void reformat_arr(int n, int m, int **arr)
-{   
-    
-    printf("\n");
-}
-
+void reformat_arr(int n, int m, int arr[][m]);
 
 int main(int argc, char* argv[]) {
     
@@ -18,7 +13,7 @@ int main(int argc, char* argv[]) {
     int x=-10, y=100;
     if (argc!=3)
     {
-        printf("Укажите размерность матрицы (n*m)\n");
+        printf("Specify the dimension of the matrix (n*m)\n");
         return 1;
     }
 
@@ -51,7 +46,7 @@ int main(int argc, char* argv[]) {
         }
     }
 
-    printf("Матрица случайных чисел размерности %d*%d:\n", N, M);
+    printf("\nThe matrix of random variables %d*%d:\n", N, M);
     for (int i=0;i<N;i++)
     {
         for (int j=0;j<M;j++)
@@ -62,4 +57,24 @@ int main(int argc, char* argv[]) {
     reformat_arr(N, M, a);
 
     return 0;
+}
+
+
+void reformat_arr(int n, int m, int arr[][m])
+{   
+    printf("\nReformated:\n");
+    _Bool flag;
+    for (int i=0;i<n;i++)
+    {
+        flag = 1;
+        for (int j=0;j<m;j++)
+            if (arr[i][j]%2 == 0)
+                flag = 0; // проверка на чётность
+        if (flag==0)
+        {
+            for (int j=0;j<m;j++)
+            printf("%d\t", arr[i][j]);
+            printf("\n");
+        }
+    }
 }
