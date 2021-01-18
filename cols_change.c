@@ -35,10 +35,10 @@ int main(int argc, char* argv[]) {
         int max = a[i][0];
         for (int j = 0; j < M; j++)
         {
-            if (a[i][j]<0)
-                num = j;
             if (j > num)
                 a[i][j] = max;
+            if (a[i][j] < 0)
+                num = j;
             if (a[i][j] > max)
                 max = a[i][j];
         }
