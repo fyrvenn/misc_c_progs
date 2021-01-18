@@ -5,17 +5,15 @@
 
 int main(int argc, char* argv[]) {
     
-    int M;
-    int N;
     int x=1, y=100;
-    if (argc!=3)
+    if (argc != 3)
     {
         printf("Specify the dimension of the matrix (n*m)\n");
         return 1;
     }
 
-    N = atoi(argv[1]);
-    M = atoi(argv[2]);
+    int N = atoi(argv[1]);
+    int M = atoi(argv[2]);
  
     // int **a = (int**)malloc(M * sizeof(int*));
     int a[N][M];
@@ -25,14 +23,14 @@ int main(int argc, char* argv[]) {
         // a[i] = (int*)malloc(N * sizeof(int));
         for (int j = 0; j < M; j++)
         {
-            a[i][j] =rand()% (y-x + 1)+x;
+            a[i][j] =rand()% (y - x + 1) + x;
         }
     }
 
     printf("\nThe matrix of random variables %d*%d:\n", N, M);
-    for (int i=0;i<N;i++)
+    for (int i = 0; i < N; i++)
     {
-        for (int j=0;j<M;j++)
+        for (int j = 0; j < M; j++)
             {
                 printf ("%d\t", a[i][j]);
             }
@@ -68,7 +66,7 @@ int main(int argc, char* argv[]) {
            }
         }
     int j = index_j[index_i];
-    printf("\nThe maximum variables from the minimums: %d, row=%d, column=%d\n", a[index_i][j], index_i+1, j+1);
+    printf("\nThe maximum variables from the minimums: %d, row=%d, column=%d\n", a[index_i][j], index_i + 1, j + 1);
         
     return 0;
 }

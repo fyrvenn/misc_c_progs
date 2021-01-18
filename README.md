@@ -8,4 +8,4 @@ N, M – размер массива
 Результаты:
 Индекс строки, индекс столбца и значение элемента.
 
-gcc  matrix.c -o matrix
+gcc  matrix.c -o matrix.exe
