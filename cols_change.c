@@ -60,19 +60,22 @@ int main(int argc, char* argv[]) {
 
 void reformat_arr(int n, int m, int arr[][m])
 {   
-    printf("\nReformated:\n");
-    _Bool flag;
-    for (int i=0;i<n;i++)
+    _Bool flag[m];
+    for (int j = 0; j < m; j++)
     {
-        flag = 1;
-        for (int j=0;j<m;j++)
-            if (arr[i][j]%2 == 0)
-                flag = 0; // проверка на чётность
-        if (flag==0)
-        {
-            for (int j=0;j<m;j++)
-            printf("%d\t", arr[i][j]);
-            printf("\n");
-        }
+        flag[j] = 1;
+        for (int i = 0; i < n; i++)
+            if (arr[i][j] % 2 == 0) // проверка на чётность
+                flag[j] = 0; 
     }
+
+    printf("\nReformated:\n");
+
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < m; j++)
+            if (flag[j] == 0)
+            printf("%d\t", arr[i][j]);
+        printf("\n");
+    }   
 }
