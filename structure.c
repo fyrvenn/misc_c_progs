@@ -10,18 +10,25 @@ struct date
   int   year;
 };
 
-struct NOTE2 
+struct NOTE1
 {
   char          Name[20];
   int           TELE;
   struct date   DATE;
-  struct NOTE2* next;
+};
+
+struct NOTE2 
+{
+  char          Name[20];
+  char          TELE[10];
+  struct date   DATE;
 };
 
 int main() 
 {
-  printf("Start\n");
   struct NOTE2 person;
+  struct NOTE1 BLOCK2[7];
+  
   printf("Введите ФИО: ");
   scanf("%s", person.Name);
   printf("Введите дату рождения\nЧисло: ");
@@ -31,10 +38,10 @@ int main()
   printf("Год: ");
   scanf("%d", &person.DATE.year);
   printf("Введите телефонный номер: ");
-  scanf("%d", &person.TELE);
+  scanf("%s", person.TELE);
 
 
-  printf("\nВы ввели : %s, дата рождения %d %s %d года, телефон: %d\n",
+  printf("\nВы ввели : %s, дата рождения %d %s %d года, телефон: %s\n",
   person.Name, person.DATE.day, person.DATE.month, person.DATE.year, person.TELE);
   return 0;
 }
